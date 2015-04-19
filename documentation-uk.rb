@@ -63,36 +63,36 @@ class Object
   #--------------------------------------------------------------------------
   # * Documentation
   #--------------------------------------------------------------------------
-  link_class_documentation "Extension de la classe Object"
+  link_class_documentation "Object class extension"
   link_method_documentation :"Object.delegate",
-                            "Délègue une méthode à une autre méthode ou à un attribut",
+                            "Delegate a method to another method or an attribute",
                             {
-                              :obj      => ["Attribut ou méthode à pointer", :Symbol],
-                              :method   => ["Méthode à appeler", :Symbol],
-                              :m_alias  => ["Alias de la méthode, peut être omis", :Symbol]
+                              :obj      => ["Attribute or method to point", :Symbol],
+                              :method   => ["Method to call", :Symbol],
+                              :m_alias  => ["Method alias (optional)", :Symbol]
                             }
   link_method_documentation :"Object.delegate_accessor",
-                            "Délègue les accesseurs, mutateurs d'un attribut à une méthode",
+                            "Delegate accessors, mutators of an attribute to a method",
                             {
-                              :obj      => ["Attribut ou méthode à pointer", :Symbol],
-                              :field    => ["Attribut de l'obj à déléguer", :Symbol]
+                              :obj      => ["Attribute or method to point", :Symbol],
+                              :field    => ["Object attribute to delegate", :Symbol]
                             }
   link_method_documentation :"Object.externalize",
-                            "Transforme un object 'callable' en méthode",
+                            "Transform a 'callable' object into method",
                             {
-                              :obj      => ["Objet callable", :Proc],
-                              :m_alias  => ["Nom de la méthode", :Symbol]
+                              :obj      => ["Callable object", :Proc],
+                              :m_alias  => ["Method name", :Symbol]
                             }
   link_method_documentation :"self.identity",
-                            "Renvoie l'instance pointée",
+                            "Return the pointed instance",
                             {}, true
   link_method_documentation :"self.attr_values",
-                            "Renvoie un hash des attributs où la clé est le nom de l'attribut
-                            et la valeur est celle de l'attribut",
+                            "Return a hash of attributes where the key is the attribute name
+                            and value is attribute value",
                             {}, true
   link_method_documentation :"self.buffer",
-                            "Renvoie un buffer (pour les Win32API's)",
-                            {:size => ["Taille du buffer", :Fixnum]}, true
+                            "Return a buffer (for Win32API's)",
+                            {:size => ["Buffer size", :Fixnum]}, true
 
 end
 
@@ -106,19 +106,19 @@ class Array
   #--------------------------------------------------------------------------
   # * Documentation
   #--------------------------------------------------------------------------
-  link_class_documentation "Extension des arrays"
+  link_class_documentation "Array extension"
   link_method_documentation :"self.to_point",
-                            "Retourne l'objet Point, que le tableau ait la forme [x, y] ou [Point]",
+                            "Return object Point, whether the array has [x, y] form or [Point] form",
                             {}, true
   link_method_documentation :"self.to_xy",
-                            "Retourne les valeurs 'x, y', que le tableau ait la forme [x, y] ou [Point]",
+                            "Return 'x, y' values, whether the array has [x, y] form or [Point] form",
                             {}, true
   link_snippet "self.to_xy",
 "def foo?(*p)
   x, y = p.to_xy
   bar(x, y)
 end
-# La méthode foo? pourra recevoir soit (x, y), soit une instance de point en argument"
+# Method foo? could either receive (x, y) or a Point instance as argument"
 end
 
 #==============================================================================
@@ -131,45 +131,45 @@ class Sprite
   #--------------------------------------------------------------------------
   # * Documentation
   #--------------------------------------------------------------------------
-  link_class_documentation "Extension des sprites"
+  link_class_documentation "Sprites extension"
   link_method_documentation :"self.rect",
-                            "Retourne le rectangle relatif d'un sprite",
+                            "Return relative rectangle of a sprite",
                             {}, true
   link_method_documentation :"self.in?",
-                            "Vérifie si le point passé en argument (via (x, y), ou via une instance de Point) est inscrit dans le rectangle du sprite",
+                            "Check if the sprite rectangle contains the point passed as argument (via (x, y), or a Point instance)",
                             {
-                              :x=> ["Coordonnées X du point", :Fixnum],
-                              :y=> ["Coordonnées Y du point", :Fixnum]
+                              :x=> ["X coordinate of the point", :Fixnum],
+                              :y=> ["Y coordinate of the point", :Fixnum]
                             }, true
   link_method_documentation :"self.precise_in?",
-                            "Vérifie si le point passé en argument (via (x, y), ou via une instance de Point) est inscrit dans le bitmap du sprite, en tenant compte de la transparence",
+                            "Check if the sprite bitmap contains the point passed as argument (via (x, y), or a Point instance), taking transparency into account",
                             {
-                              :x=> ["Coordonnées X du point", :Fixnum],
-                              :y=> ["Coordonnées Y du point", :Fixnum]
+                              :x=> ["X coordinate of the point", :Fixnum],
+                              :y=> ["Y coordinate of the point", :Fixnum]
                             }, true
   link_method_documentation :"self.hover?",
-                            "Vérifie si la souris passe au dessus du rectangle du sprite",
+                            "Check if the mouse hover over the sprite rectangle",
                             {}, true
   link_method_documentation :"self.click?",
-                            "Vérifie si le rectangle du sprite est cliqué",
+                            "Check if the sprite rectangle is clicked on",
                             {}, true
   link_method_documentation :"self.press?",
-                            "Vérifie si le rectangle du sprite est enfoncé par la touche passée en argument",
-                            {:key => ["Touche d'activation", :Symbol]}, true
+                            "Check if the key passed as argument is down while the mouse hover over the sprite rectangle",
+                            {:key => ["Trigger key", :Symbol]}, true
   link_method_documentation :"self.trigger?",
-                            "Vérifie si le rectangle du sprite est clické une fois par la touche passée en argument",
-                            {:key => ["Touche d'activation", :Symbol]}, true
+                            "Check if the key passed as argument is pressed one time while the mouse hover over the sprite rectangle",
+                            {:key => ["Trigger key", :Symbol]}, true
   link_method_documentation :"self.repeat?",
-                            "Vérifie si le rectangle du sprite est clické de manière répétée par la touche passée en argument",
-                            {:key => ["Touche d'activation", :Symbol]}, true
+                            "Check if the key passed as argument is pressed repeatedly while the mouse hover over the sprite rectangle",
+                            {:key => ["Trigger key", :Symbol]}, true
   link_method_documentation :"self.release?",
-                            "Vérifie si le rectangle du sprite est relaché par la touche passée en argument",
-                            {:key => ["Touche d'activation", :Symbol]}, true
+                            "Check if the key passed as argument is released while the mouse hover over the sprite rectangle",
+                            {:key => ["Trigger key", :Symbol]}, true
   link_method_documentation :"self.mouse_x",
-                            "Retourne la position x de la souris relative au rectangle du sprite",
+                            "Return X coordinate of mouse position relative to sprite rectangle",
                             {}, true
   link_method_documentation :"self.mouse_y",
-                            "Retourne la position y de la souris relative au rectangle du sprite",
+                            "Return Y coordinate of mouse position relative to sprite rectangle",
                             {}, true
 
 end
