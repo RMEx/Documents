@@ -1,0 +1,42 @@
+digraph G {
+
+	ratio = "compress";
+    graph [fontname = "arial", fontsize=8];
+ 	node [fontname = "arial", fontsize=8];
+ 	edge [fontname = "arial", fontsize=8];
+	 
+	A [label="Initialisation"];
+	B [label="Initialisation d'un tour"];
+	K [label="Victoire?"]
+	L [label="Oui"];
+	M [label="Non"];
+	O [label="Peut perdre"];
+	P [label="Oui"];
+	Q [label="Non"];
+	R [label="Retour au jeu"];
+	S [label="Game Over"];
+	T [label="Récompense"];
+	
+	subgraph  SG {
+	
+		C [label="Pour chaque acteur"]; 
+		D [label="Choix de son action"];
+		E [label="Exécution de l'action"];
+		F [label="Subit\: poison par exemple"];
+		G [label="Vérifier fin"];
+		H [label="Oui"]; 
+		I [label="Non"];
+		
+		C -> D -> E -> F -> G;
+		G -> {H I};
+		I -> C;
+	}
+	
+	A -> B -> C;
+	H -> K -> {L M};
+	M -> O -> {P Q};
+	P -> S;
+	Q -> R;
+	L -> T -> R;
+	
+}
